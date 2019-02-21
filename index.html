@@ -142,12 +142,14 @@
 				<div class="form1">
 					Email or Phone<br>
 					<input id="id" type="text" name="userid">
-					<div id="idError" style="color:red; font-size:12px; display: none">Wrong email.</div>
+					<div id="idError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Incorrect email.</div>
+					<div id="idEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please enter your email.</div>
 				</div>
 				<div class="form2">
 					Password<br>
 					<input id="password" type="Password" name="pswrd">
-					<div id="passwordError" style="color:red; font-size:12px; display: none">Wrong password.</div>
+					<div id="passwordError" style="color:rgb(255, 0, 0); font-size:12px; display: none">Incorrect password.</div>
+					<div id="passwordEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please enter your password.</div>
 					<br>
 					Forgotten account?
 				</div>
@@ -173,24 +175,36 @@
 					<br><br>
 					<div style="float:left"><input type="text" id="fname" name="firstname" placeholder="First Name"
 							class="name">
-						<div id="fnameError" style="color:red; font-size:12px; display: none">Invalid Name</div>
+						<div id="fnameError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Name</div>
+						<div id="fnameEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your first
+							name<br> in
+							input box.</div>
 
 					</div>
-					<div style="float:left"><input type="text" id="lname" name="surname" placeholder="Surname"
+					<div style="float:left"><input type="text" id="lname" name="surname" placeholder="Last Name"
 							class="name">
-						<div id="lnameError" style="color:red; font-size:12px; display: none">Invalid Name</div>
+						<div id="lnameError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Name</div>
+						<div id="lnameEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your last name
+							<br> in
+							input box.</div>
 					</div>
 					<br>
 					<input type="text" id="email" name="mobile" placeholder="Email address" class="email"><br>
-					<div id="emailError" style="color:red; font-size:12px; display: none">Invalid Email</div>
+					<div id="emailError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Email</div>
+					<div id="emailEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your Email address
+						in input box.</div>
 					<input type="text" id="number" onkeyup="countryCodeAddition()" name="mobile"
 						placeholder="Mobile number" class="email">
 					<br>
-					<div id="numberError" style="color:red; font-size:12px; display: none">Invalid Number</div>
+					<div id="numberError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Number</div>
+					<div id="numberEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your Contact
+						Number
+						in input box.</div>
 					<input type="password" id="pswrd" name="pswrd" class="email" placeholder="New Password">
-					<div id="pswrdError" style="color:red; font-size:12px; display: none">Invalid Password. Password
+					<div id="pswrdError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Password. Password
 						must contain atleast 8 character including number,<br> Capital and small alphabet and special
 						character.</div>
+					<div id="pswrdEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please enter Password.</div>
 					<br><br>
 					Birthday<br>
 					<input type="date" id="dob" name="Birthday" placeholder="DOB" class="name"><span
@@ -213,19 +227,23 @@
 				function validation() {
 					var name = document.getElementById("fname").value
 					if (!isNaN(name) || name.length < 2) {
-						document.getElementById("fnameError").style.display = "block";
+						let id = (name == "" || name == " ") ? "fnameEmpty" : "fnameError"
+						document.getElementById(id).style.display = "block";
 					}
 					name = document.getElementById("lname").value
 					if (!isNaN(name) || name.length < 2) {
-						document.getElementById("lnameError").style.display = "block";
+						id = (name == "" || name == " ") ? "lnameEmpty" : "lnameError"
+						document.getElementById(id).style.display = "block";
 					}
 					var email = document.getElementById("email").value
 					if (email.indexOf("@") < 1 || email.length < 6 || !email.endsWith(".com")) {
-						document.getElementById("emailError").style.display = "block";
+						id = (name == "" || name == " ") ? "emailEmpty" : "emailError"
+						document.getElementById(id).style.display = "block";
 					}
 					var number = document.getElementById("number").value
 					if (number.length != 13) {
-						document.getElementById("numberError").style.display = "block";
+						id = (name == "" || name == " ") ? "numberEmpty" : "numberError"
+						document.getElementById(id).style.display = "block";
 					}
 					var pswrd = document.getElementById("pswrd").value
 					var regNmbr = /[0-9]/g
@@ -233,7 +251,8 @@
 					var regCapAlpha = /[A-Z]/g
 					var regSpclChar = /[`~@#$%^&*()_+{}|:"?=/.;'[-]/g
 					if (!regNmbr.test(pswrd) || !regAlpha.test(pswrd) || !regCapAlpha.test(pswrd) || !regSpclChar.test(pswrd) || pswrd.length < 8) {
-						document.getElementById("pswrdError").style.display = "block";
+						id = (name == "" || name == " ") ? "pswrdEmpty" : "pswrdError"
+						document.getElementById(id).style.display = "block";
 					}
 
 
@@ -246,10 +265,12 @@
 				}
 				function loginValidation() {
 					if (document.getElementById("id").value != "dlsemwal@gmail.com") {
-						document.getElementById("idError").style.display = "block";
+						id = (name == "" || name == " ") ? "idEmpty" : "idError"
+						document.getElementById(id).style.display = "block";
 					}
-					if(document.getElementById("password").value != "8909216657") {
-						document.getElementById("passwordError").style.display = "block";
+					if (document.getElementById("password").value != "8909216657") {
+						id = (name == "" || name == " ") ? "passwordEmpty" : "passwordError"
+						document.getElementById(id).style.display = "block";
 					}
 				}
 
