@@ -173,16 +173,14 @@
 				<span style="font-size: 20px">
 					It's free and always will be.
 					<br><br>
-					<div style="float:left"><input type="text" id="fname" name="firstname" placeholder="First Name"
-							class="name">
+					<div style="float:left"><input type="text" id="fname" name="firstname" placeholder="First Name" class="name">
 						<div id="fnameError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Name</div>
 						<div id="fnameEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your first
 							name<br> in
 							input box.</div>
 
 					</div>
-					<div style="float:left"><input type="text" id="lname" name="surname" placeholder="Last Name"
-							class="name">
+					<div style="float:left"><input type="text" id="lname" name="surname" placeholder="Last Name" class="name">
 						<div id="lnameError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Name</div>
 						<div id="lnameEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your last name
 							<br> in
@@ -193,8 +191,7 @@
 					<div id="emailError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Email</div>
 					<div id="emailEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your Email address
 						in input box.</div>
-					<input type="text" id="number" onkeyup="countryCodeAddition()" name="mobile"
-						placeholder="Mobile number" class="email">
+					<input type="text" id="number" onkeyup="countryCodeAddition()" name="mobile" placeholder="Mobile number" class="email">
 					<br>
 					<div id="numberError" style="color:rgb(250, 60, 60); font-size:12px; display: none">Invalid Number</div>
 					<div id="numberEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please fill your Contact
@@ -207,8 +204,8 @@
 					<div id="pswrdEmpty" style="color:rgb(250, 60, 60); font-size:12px; display: none">Please enter Password.</div>
 					<br><br>
 					Birthday<br>
-					<input type="date" id="dob" name="Birthday" placeholder="DOB" class="name"><span
-						style="font-size: 10px; color: midnightblue;">Why do I need to provide my
+					<input type="date" id="dob" name="Birthday" placeholder="DOB" class="name"><span style="font-size: 10px; color: midnightblue;">Why
+						do I need to provide my
 						date of birth?</span>
 					<br><br>
 					<input type="radio" name="gender">Female <input type="radio" name="gender">Male
@@ -237,12 +234,12 @@
 					}
 					var email = document.getElementById("email").value
 					if (email.indexOf("@") < 1 || email.length < 6 || !email.endsWith(".com")) {
-						id = (name == "" || name == " ") ? "emailEmpty" : "emailError"
+						id = (email == "" || email == " ") ? "emailEmpty" : "emailError"
 						document.getElementById(id).style.display = "block";
 					}
 					var number = document.getElementById("number").value
 					if (number.length != 13) {
-						id = (name == "" || name == " ") ? "numberEmpty" : "numberError"
+						id = (number == "" || number == " ") ? "numberEmpty" : "numberError"
 						document.getElementById(id).style.display = "block";
 					}
 					var pswrd = document.getElementById("pswrd").value
@@ -251,7 +248,7 @@
 					var regCapAlpha = /[A-Z]/g
 					var regSpclChar = /[`~@#$%^&*()_+{}|:"?=/.;'[-]/g
 					if (!regNmbr.test(pswrd) || !regAlpha.test(pswrd) || !regCapAlpha.test(pswrd) || !regSpclChar.test(pswrd) || pswrd.length < 8) {
-						id = (name == "" || name == " ") ? "pswrdEmpty" : "pswrdError"
+						id = (pswrd == "" || pswrd == " ") ? "pswrdEmpty" : "pswrdError"
 						document.getElementById(id).style.display = "block";
 					}
 
@@ -265,11 +262,11 @@
 				}
 				function loginValidation() {
 					if (document.getElementById("id").value != "dlsemwal@gmail.com") {
-						id = (name == "" || name == " ") ? "idEmpty" : "idError"
+						let id = (document.getElementById("id").value == "" || document.getElementById("id").value == " ") ? "idEmpty" : "idError"
 						document.getElementById(id).style.display = "block";
 					}
 					if (document.getElementById("password").value != "8909216657") {
-						id = (name == "" || name == " ") ? "passwordEmpty" : "passwordError"
+						let id = (document.getElementById("password").value == "" || document.getElementById("password").value == " ") ? "passwordEmpty" : "passwordError"
 						document.getElementById(id).style.display = "block";
 					}
 				}
